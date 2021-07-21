@@ -36,6 +36,7 @@ import numpy as np
 from utils.data_loader import load_movie_titles
 from recommenders.collaborative_based import collab_model
 from recommenders.content_based import content_model
+from sklearn.preprocessing import MultiLabelBinarizer
 
 # Data Loading
 title_list = load_movie_titles('resources/data/movies.csv')
@@ -45,7 +46,7 @@ def main():
 
     # DO NOT REMOVE the 'Recommender System' option below, however,
     # you are welcome to add more options to enrich your app.
-    page_options = ["Recommender System","Solution Overview"]
+    page_options = ["Recommender System","Solution Overview","Exploratory Data Analysis"]
 
     # -------------------------------------------------------------------
     # ----------- !! THIS CODE MUST NOT BE ALTERED !! -------------------
@@ -102,7 +103,28 @@ def main():
     # ------------- SAFE FOR ALTERING/EXTENSION -------------------
     if page_selection == "Solution Overview":
         st.title("Solution Overview")
-        st.write("Describe your winning approach on this page")
+        st.write("For our best model, we used the SVDpp and got an RMSE of 0.82")
+
+    if page_selection == "Exploratory Data Analysis":
+        st.title("Exploratory Data Analysis")
+        st.write("Exploratory Data Analysis (EDA) is an important step in the Data Science Process.")
+        st.write("EDA consists of comprehensively examining the dataset before using the dataset in training a model.")
+        st.write("The core of EDA involves identifying key relationships that exist between features in the dataset and how these features interact to alter the target variable")
+        st.write("EDA includes performing analysis using a myriad of statistical and data visualisation techniques.") 
+        
+        if st.checkbox("genres"):
+            st.subheader("Top Genres")
+            st.image('resources/imgs/common_genres.PNG',use_column_width=True)
+        
+        if st.checkbox("ratings"):
+            st.subheader("Movie ratings")
+            # st.image('resources/imgs/rating.PNG',use_column_width=True)
+
+        if st.checkbox("cast"):
+            st.subheader("Popular cast")
+            # st.image('resources/imgs/cast.PNG',use_column_width=True)
+
+
 
     # You may want to add more sections here for aspects such as an EDA,
     # or to provide your business pitch.
