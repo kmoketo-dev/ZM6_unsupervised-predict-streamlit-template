@@ -34,12 +34,12 @@ import pickle
 import copy
 import scipy as sp
 from surprise import Reader, Dataset
-from surprise import SVD, NormalPredictor, BaselineOnly, KNNBasic, NMF
+from surprise import SVD, NormalPredictor, BaselineOnly, KNNBasic, NMF, SVDpp, CoClustering, 
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
 
 # Importing data
-movies_df = pd.read_csv('resources/data/movies.csv',sep = ',',delimiter=',')
+movies_df = pd.read_csv('resources/data/movies.csv',sep = ',')
 ratings_df = pd.read_csv('resources/data/ratings.csv')
 ratings_df.drop(['timestamp'], axis=1,inplace=True)
 
