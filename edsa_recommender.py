@@ -44,9 +44,17 @@ title_list = load_movie_titles('resources/data/movies.csv')
 # App declaration
 def main():
 
+    html_template = """
+    <div style="background-color:white;padding:10px;border-radius:20px;margin:5px;">
+    <h1 style="color:black;text-align:center; text-shadow:2px 2px #ff0000">EDSA Movie Recommendation Challenge</h1>
+    <h3 style="color:black;text-decoration:underline">EVERYTHING is Recommended.</h3>
+    <h3 style="color:black;">TEAM ZM6_UNSUPERVISED LEARNING</h3>
+    </div>
+    """
+
     # DO NOT REMOVE the 'Recommender System' option below, however,
     # you are welcome to add more options to enrich your app.
-    page_options = ["Recommender System","Solution Overview","Exploratory Data Analysis"]
+    page_options = ["Home","Recommender System","Solution Overview","Exploratory Data Analysis","Contact us"]
 
     # -------------------------------------------------------------------
     # ----------- !! THIS CODE MUST NOT BE ALTERED !! -------------------
@@ -103,7 +111,8 @@ def main():
     # ------------- SAFE FOR ALTERING/EXTENSION -------------------
     if page_selection == "Solution Overview":
         st.title("Solution Overview")
-        st.write("For our best model, we used the SVDpp and got an RMSE of 0.82")
+        st.write("For best RMSE, we used the SVD with hyperparameter tuning")
+        st.image('resources/imgs/solution.PNG',use_column_width=True)
 
     if page_selection == "Exploratory Data Analysis":
         st.title("Exploratory Data Analysis")
@@ -112,18 +121,34 @@ def main():
         st.write("The core of EDA involves identifying key relationships that exist between features in the dataset and how these features interact to alter the target variable")
         st.write("EDA includes performing analysis using a myriad of statistical and data visualisation techniques.") 
         
-        if st.checkbox("genres"):
+        if st.checkbox("Genres"):
             st.subheader("Top Genres")
             st.image('resources/imgs/common_genres.PNG',use_column_width=True)
         
-        if st.checkbox("ratings"):
-            st.subheader("Movie ratings")
-            # st.image('resources/imgs/rating.PNG',use_column_width=True)
+        if st.checkbox("Movies"):
+            st.subheader("Popular Movies")
+            st.image('resources/imgs/most_watched.PNG',use_column_width=True)
 
-        if st.checkbox("cast"):
-            st.subheader("Popular cast")
-            # st.image('resources/imgs/cast.PNG',use_column_width=True)
+        if st.checkbox("Ratings"):
+            st.subheader("Number of Ratings")
+            st.image('resources/imgs/ratings.PNG',use_column_width=True)
 
+        if st.checkbox("Directors"):
+            st.subheader("Movies per Director")
+            st.image('resources/imgs/directors.PNG',use_column_width=True)
+
+    if page_selection == "Home":
+        st.markdown(html_template.format('royalblue','white'), unsafe_allow_html=True)
+        st.image('resources/imgs/movies.jpg',use_column_width=True) 
+
+    if page_selection == "Contact us":
+        st.header("Contact us")
+        st.subheader("Let`s start a conversation")
+        st.write("Address: 19 Amershoff, Braamfontein")
+        st.write("Contacts: +27710258594")
+        st.write("E-mail: unsupervised@explore.net")
+
+        
 
 
     # You may want to add more sections here for aspects such as an EDA,
