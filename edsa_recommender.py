@@ -109,10 +109,7 @@ def main():
     # -------------------------------------------------------------------
 
     # ------------- SAFE FOR ALTERING/EXTENSION -------------------
-    if page_selection == "Solution Overview":
-        st.title("Solution Overview")
-        st.write("For best RMSE, we used the SVD with hyperparameter tuning")
-        st.image('resources/imgs/solution.png',use_column_width=True)
+    
 
     if page_selection == "Exploratory Data Analysis":
         st.title("Exploratory Data Analysis")
