@@ -123,19 +123,19 @@ def main():
         
         if st.checkbox("Genres"):
             st.subheader("Top Genres")
-            st.image('resources/imgs/common_genres.PNG',use_column_width=True)
+            st.image('resources/imgs/common_genres.png',use_column_width=True)
         
         if st.checkbox("Movies"):
             st.subheader("Popular Movies")
-            st.image('resources/imgs/most_watched.PNG',use_column_width=True)
+            st.image('resources/imgs/most_watched.png',use_column_width=True)
 
         if st.checkbox("Ratings"):
             st.subheader("Number of Ratings")
-            st.image('resources/imgs/ratings.PNG',use_column_width=True)
+            st.image('resources/imgs/ratings.png',use_column_width=True)
 
         if st.checkbox("Directors"):
             st.subheader("Movies per Director")
-            st.image('resources/imgs/directors.PNG',use_column_width=True)
+            st.image('resources/imgs/directors.png',use_column_width=True)
 
     if page_selection == "Home":
         st.markdown(html_template.format('royalblue','white'), unsafe_allow_html=True)
