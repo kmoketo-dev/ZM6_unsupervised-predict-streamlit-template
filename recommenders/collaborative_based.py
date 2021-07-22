@@ -34,7 +34,7 @@ import pickle
 import copy
 import scipy as sp
 from surprise import Reader, Dataset
-from surprise import SVD, NormalPredictor, BaselineOnly, KNNBasic, NMF, SVDpp, CoClustering, 
+from surprise import SVD, NormalPredictor, BaselineOnly, KNNBasic, NMF, SVDpp, CoClustering
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
 
